@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+            .circle_green { 
+                width:1%;
+                padding:10px 11px;
+                margin:0 auto;
+                border:2px solid #a1a1a1;
+                border-radius:25px;
+                background-color:blue;
+            }
+			
+			table {
+				margin: 0 auto;
+				margin-top: 10px;
+				text-align: center;
+			}
+			
+			.main {
+				margin: 0 auto;
+				border:2px solid #1E90FF;
+				background-color: rgba(240, 240, 240, 1);
+				height:400px;
+				width:700px;
+			}
+			
+			#display {
+				width:75px;
+				height:20px;
+				background:white; color:#696969;
+				padding-left: 5px;
+				padding-right: 5px;
+			}
+			
+			.details {
+				display: flex;
+				position: center;
+			}
+			
+			.l-margin {
+				margin-left: 50px;
+			}
+			
+			.value {
+				border:2px solid Forestgreen;
+				margin-right: 80px;
+			}
+			.button {
+				color:white;
+				background: linear-gradient(rgb(71, 180, 245) 5%, hsl(202, 91%, 42%) 100%) rgb(71, 180, 245);
+				width: 90px;
+				height: 40px;
+				white-space:normal;
+				margin: 20px;
+			}
+			
+			ul {
+				text-align: left;
+			}
+        </style>	
+	</head>
+	<body>
+		<div class="main">
+		<center>
+		<table>
+			<tr>
+				<td id="display">PO#</td>
+				<td id="display" class="value">PGPO2605</td>
+				<td style="width:80px;"></td>
+				<td id="display">Lot#</td>
+				<td id="display" class="value">1</td>
+			</tr>
+		</table>
+
+        <table cellspacing="10">
+			<tr>
+				<td>P & G Buyer</td><td>Supplier</td><td>SGS Lab</td><td>Expeditor India</td>
+				<td>Expeditor US</td><td>P & G Warehouse</td><td>Covance Lab</td><td>Manufacturer</td>
+			</tr>
+            <tr>
+                <td>
+                    <div class="circle_green"></div>
+				</td>
+				<td>
+					<div class="circle_green"></div>
+				</td>
+                <td>
+                    <div class="circle_green"></div>
+				</td>
+				<td>
+					<div class="circle_green"></div>
+				</td>   
+                <td>
+                    <div class="circle_green"></div>
+				</td>
+				<td>
+					<div class="circle_green"></div>
+				</td>   
+                <td>
+                    <div class="circle_green"></div>
+				</td>
+				<td>
+					<div class="circle_green"></div>
+				</td>                  
+            </tr>
+			<tr>
+				<td>2 Jun</td><td>4 Jun</td><td>6 Jun</td>
+			</tr>
+        </table>
+		<ul>
+			<li>PO has been created and is sent to Supplier for processing.</li>
+			<li>Lot has been received by Supplier & shipped to SGS Lab for testing and it is in process at SGS Lab.</li>
+		</ul>
+		<input style="display:center;" class="button" id="back" type="submit" name="back" value="Back">
+		</center>
+		
+		</div>
+	</body>
+</html>
