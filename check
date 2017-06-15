@@ -1,0 +1,45 @@
+<style>
+	.flex-container {
+		display: -webkit-flex;
+		display: flex;
+		width: 100%;
+	}
+	
+	.flex-item {
+		width: 50%;
+	}
+</style>
+
+<div class="flex-container">
+	<div class="flex-item">
+		<input placeholder="Please enter Invoice#"></input>
+		<div id="in_list">
+		<button>Create</button>
+		<button>Cancel</button>
+	</div>
+	<div class="flex-item">
+		<table>
+			<tr>
+				<td>Invoice#</td>
+				<td>Check Invoice Status</td>
+			</tr>
+			<tr>
+				<td>PO#</td>
+				<td>Check Invoice Status</td>
+			</tr>
+			<tr>
+				<td>Lot#</td>
+				<td>Check Invoice Status</td>
+			</tr>
+			<tr>
+				<td>SupplierId</td>
+				<td>Check Invoice Status</td>
+			</tr>
+		</table>
+		
+		<div>Current status</div>
+		
+		<button>View Status for all Lots</button>
+		<button>Back</button>
+	</div>
+</div>
