@@ -1,183 +1,209 @@
-<head>
-	<style>
-	
-	.value_1 {
-		border:2px solid Forestgreen;
-		width:80px;
-	}
-	
-	#display {
-		width:80px;
-		height:20px;
-		background:white; color:#696969;
-		padding-left: 5px;
-		padding-right: 5px;
-	}
-	
-	.top-details {
-		display: flex
-	}
-	
-	.main {
-		margin: 0 auto;
-		border:2px solid #1E90FF;
-		background-color: rgba(240, 240, 240, 1);
-		height:400px;
-		width:700px;
-	}
-	
-	.add-btn {
-		color:white;
-		background: linear-gradient(rgb(71, 180, 245) 5%, hsl(202, 91%, 42%) 100%) rgb(71, 180, 245);
-		width: 85px;
-		height: 25px;
-		white-space:normal;
-		margin: 10px;
-	}
-	.create-btn {
-		color:white;
-		background: #3333cc;
-		width: 90px;
-		height: 40px;
-		white-space:normal;
-		margin: 20px;
-		border-radius: 8px;
-	}
-	
-	.raw-material {
-		border: 1px solid black;
-		border-collapse: collapse;
-	}
-	
-	th, td {
-		border: 1px solid black;
-		border-collapse: collapse;
-	}
-	
-	th {
-		background-color: #3333cc;
-		color: white;
-	}
-	</style>
-	<script src="jquery-3.2.1.min.js"></script>
-	<script src="script.js"></script>
-</head>
+<!DOCTYPE html>
+<html>
+	<head> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Create invoice</title>
+	 	<style> 	 
+		 	.value_1 { 
+		 		border:2px solid Forestgreen; 
+		 		width:80px; 
+		 	} 
+		 	 
+		 	@media (max-width: 450px) {
+				.flex-container {
+					-webkit-flex-direction: column;
+    				flex-direction: column;
+				}
+			}
 
-<body>
-<div class="main">
-	<h2 style="margin: auto; width: 50%; text-align:center; padding:5px;">New Invoice</h2>
-	<div class="top-details">
-	<table style="float: left">
-		<tr>
-			<td id="display">PO#</td>
-			<td id="display" class="value_1">PGPO2605</td>
-		</tr>
-		<tr>
-			<td id="display">Vendor#</td>
-			<td id="display" class="value_1">Green Earth</td>
-		</tr>
-		<tr>
-			<td id="display">Invoice Date</td>
-			<td id="display" class="value_1">today's</td>
-		</tr>
-	</table>
-	
-	<table>
-		<tr>
-			<td id="display">Delivery Date</td>
-			<td id="display" class="value_1">DELIVERY</td>
-		</tr>
-		<tr>
-			<td id="display">Contract ID</td>
-			<td id="display" class="value_1">PGCI</td>
-		</tr>
-	</table>
-	</div>
-	
-	<div id="alert" style="display:none">
-		Invoice created suucessfully!!!
-		<div id="message"></div>
-	</div>
-	<caption>Raw material Details</caption>
-	<center>
-	
-	<table class="raw-material">
-		
-		<tr>
-			<th>Item Identifier</th>
-			<th>Contract ID</th>
-			<th>Product</th>
-			<th>Lot#</th>
-			<th>Qty</th>
-			<th>Unit Price($)</th>
-			<th>Tax Rate</th>
-			<th>Tax</th>
-			<th>Price($)</th>
-		</tr>
-		<tr>
-			<td>It-Seed-Ps</td>
-			<td style="background-color:#b3ccff;">PGCI2065</td>
-			<td style="background-color:#b3ccff;">Psyllium Seeds</td>
-			<td>1</td>
-			<td>10</td>
-			<td>10.50</td>
-			<td>0 %</td>
-			<td style="background-color:#b3ccff;">0.00</td>
-			<td style="background-color:#b3ccff;">100.00</td>
-		</tr>
-	</table>
-	
+		 	#display { 
+		 		width:80px; 
+		 		height:20px; 
+		 		background:white; color:#696969; 
+		 		padding-left: 5px; 
+		 		padding-right: 5px; 
+		 	} 
+		 	 
+		 	.flex-container { 
+		 		display: flex 
+		 	} 
+		 	 
+		 	.main { 
+		 		margin: 0 auto; 
+		 		border:2px solid #1E90FF; 
+		 		background-color: rgba(240, 240, 240, 1); 
+		 		height:60%; 
+		 		width:80%;
+		 		padding: 2%;
+		 	} 
+		 	 
+		 	.add-btn { 
+		 		color:white; 
+		 		background: linear-gradient(rgb(71, 180, 245) 5%, hsl(202, 91%, 42%) 100%) rgb(71, 180, 245); 
+		 		width: 85px; 
+		 		height: 25px; 
+		 		white-space:normal; 
+		 		margin: 10px; 
+		 	} 
+		 	.create-btn { 
+		 		color:white; 
+		 		background: #3333cc; 
+		 		width: 90px; 
+		 		height: 40px; 
+		 		white-space:normal; 
+		 		margin: 20px; 
+		 		border-radius: 8px; 
+		 	} 
+		 	 
+		 	.raw-material { 
+		 		border: 1px solid black; 
+		 		border-collapse: collapse; 
+		 	} 
+		 	 
+		 	th, td { 
+		 		border: 1px solid black; 
+		 		border-collapse: collapse; 
+		 	} 
+		 	
+		 	table {
+		 		width: 100%;
+		 	}
 
-	<div>
-		<div style="display:flex; width:90%">
-			<div style="width:50%">
-				<div>
-					<button class="add-btn">Add Item</button>
-					<button class="add-btn">Delete Item</button>
-				</div>
+		 	th { 
+		 		background-color: #3333cc; 
+		 		color: white; 
+		 	} 
+
+		 	.flex-item {
+		 		width: 50%;
+		 	}
+
+		 	.s-table {
+		 		width: 50%;
+		 	}
+	 	</style> 
+		<script src="jquery-3.2.1.min.js"></script> 
+		<script src="script.js"></script> 
+	</head> 
+  
+	<body> 
+		<div class="main"> 
+			<h2 style="margin: auto; width: 50%; text-align:center; padding:5px;">New Invoice</h2> 
+			<div class="flex-container"> 
+				<div class="flex-item">
+					<table class="s-table" style="float: left"> 
+						<tr> 
+							<td id="display">PO#</td> 
+							<td id="display" class="value_1">PGPO2605</td> 
+						</tr> 
+						<tr> 
+							<td id="display">Vendor#</td> 
+							<td id="display" class="value_1">Green Earth</td> 
+						</tr> 
+						<tr> 
+							<td id="display">Invoice Date</td> 
+							<td id="display" class="value_1">today's</td> 
+						</tr> 
+					</table> 
+				</div>	 
+				<div class="flex-item">
+					<table class="s-table"> 
+						<tr> 
+							<td id="display">Delivery Date</td> 
+							<td id="display" class="value_1">DELIVERY</td> 
+						</tr> 
+						<tr> 
+							<td id="display">Contract ID</td> 
+							<td id="display" class="value_1">PGCI</td> 
+						</tr> 
+					</table> 
+			</div> 
 			</div>
-			<div style="width:50%">
-				<table style="float:right; padding-right: 25px">
-					<tr>
-						<td>Subtotal($)</td>
-						<td>0.00</td>
-					</tr>
-					<tr>
-						<td>Tax($)</td>
-						<td>0.00</td>
-					</tr>
-					<tr>
-						<td>Total($)</td>
-						<td>0.00</td>
-					</tr>
-				</table>
-			</div>
-		</div>
-		<div>
-			<button class="create-btn">Create</button>
-			<button class="create-btn">Cancel</button>
-		</div>
-	</div>
-	</center>
-	<!--<div style="width:80%">
-		<table style="float:right; padding-right: 25px">
-			<tr>
-				<td>Subtotal($)</td>
-				<td>0.00</td>
-			</tr>
-			<tr>
-				<td>Tax($)</td>
-				<td>0.00</td>
-			</tr>
-			<tr>
-				<td>Total($)</td>
-				<td>0.00</td>
-			</tr>
-		</table>
-	</div>
-	<center>
-		<button class="create-btn">Create</button>
-		<button class="create-btn">Cancel</button>
-	</center>-->
-<div>
-</body>
+			<div id="alert" style="display:none"> 
+				Invoice created suucessfully!!! 
+				<div id="message"></div> 
+			</div> 
+			<caption>Raw material Details</caption> 
+			<center> 
+			 
+			<table class="raw-material"> 
+				 
+				<tr> 
+					<th>Item Identifier</th> 
+					<th>Contract ID</th> 
+					<th>Product</th> 
+					<th>Lot#</th> 
+					<th>Qty</th> 
+					<th>Unit Price($)</th> 
+					<th>Tax Rate</th> 
+					<th>Tax</th> 
+					<th>Price($)</th> 
+				</tr> 
+				<tr> 
+					<td>It-Seed-Ps</td> 
+					<td style="background-color:#b3ccff;">PGCI2065</td> 
+					<td style="background-color:#b3ccff;">Psyllium Seeds</td> 
+					<td>1</td> 
+					<td>10</td> 
+					<td>10.50</td> 
+					<td>0 %</td> 
+					<td style="background-color:#b3ccff;">0.00</td> 
+					<td style="background-color:#b3ccff;">100.00</td> 
+				</tr> 
+			</table> 
+			 
+
+			<div> 
+				<div class="flex-container" style="width:100%"> 
+					<div style="width:50%"> 
+						<div> 
+							<button class="add-btn">Add Item</button> 
+							<button class="add-btn">Delete Item</button> 
+						</div> 
+					</div> 
+					<div style="width:50%"> 
+						<table class="s-table" style="float:right;"> 
+							<tr> 
+								<td>Subtotal($)</td> 
+								<td>0.00</td> 
+							</tr> 
+							<tr> 
+								<td>Tax($)</td> 
+								<td>0.00</td> 
+							</tr> 
+							<tr> 
+								<td>Total($)</td> 
+								<td>0.00</td> 
+							</tr> 
+						</table> 
+					</div> 
+				</div> 
+				<div> 
+					<button class="create-btn">Create</button> 
+					<button class="create-btn">Cancel</button> 
+				</div> 
+			</div> 
+			</center> 
+			<!--<div style="width:80%"> 
+				<table style="float:right; padding-right: 25px"> 
+					<tr> 
+						<td>Subtotal($)</td> 
+						<td>0.00</td> 
+					</tr> 
+					<tr> 
+						<td>Tax($)</td> 
+						<td>0.00</td> 
+					</tr> 
+					<tr> 
+						<td>Total($)</td> 
+						<td>0.00</td> 
+					</tr> 
+				</table> 
+			</div> 
+			<center> 
+				<button class="create-btn">Create</button> 
+				<button class="create-btn">Cancel</button> 
+			</center>--> 
+		</div> 
+	</body> 
+</html>
