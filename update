@@ -5,18 +5,59 @@
 		width: 100%;
 	}
 	
-	.flex-item {
-		width: 50%;
+	.item_1 {
+		width: 35%;
+		background: #808080;
+	}
+	
+	.item_2 {
+		width: 65%;
+	}
+	
+	.main {
+		border:2px solid #1E90FF;
+		background-color: rgba(240, 240, 240, 1);
+		height:400px;
+		width:700px;
+	}
+	
+	.button {
+		color:white;
+		background: linear-gradient(rgb(71, 180, 245) 5%, hsl(202, 91%, 42%) 100%) rgb(71, 180, 245);
+		width: 80px;
+		height: 40px;
+		white-space:normal;
+		margin: 10px;
+	}
+	
+	.btn-green {
+		color:white;
+		background: green;
+		width: 80px;
+		height: 40px;
+		white-space:normal;
+		margin: 10px;
+	}
+	
+	#invoice {
+		padding-bottom: 10px;
 	}
 </style>
 
-<div class="flex-container">
-	<div class="flex-item">
-		<input placeholder="Please enter Invoice#"></input>
-		<button>Create</button>
-		<button>Cancel</button>
+<div class="flex-container main" >
+	<div class="item_1">
+	<center>
+		<input placeholder="Please enter Invoice#"></input><br>		
+		<input type="radio" name="invoice" id="invoice"> <label>PGIN1006</label><br>
+		<input type="radio" name="invoice" id="invoice"> <label>ULIN1504</label><br>
+		<input type="radio" name="invoice" id="invoice"> <label>PGIN1404</label><br>
+		<input type="radio" name="invoice" id="invoice"> <label>ITIN2903</label><br>
+		<input type="radio" name="invoice" id="invoice"> <label>PGIN2803</label><br>
+		<button class="button">Search</button>
+		<button class="btn-green">Check Status</button>
+	</center>
 	</div>
-	<div class="flex-item">
+	<div class="item_2">
 		<table>
 			<tr>
 				<td>Invoice#</td>
@@ -38,7 +79,7 @@
 		
 		<div>Current status</div>
 		
-		<button>Update</button>
-		<button>Back</button>
+		<button class="button">Update</button>
+		<button class="button">Back</button>
 	</div>
 </div>
