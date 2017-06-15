@@ -1,85 +1,142 @@
-<style>
-	.flex-container {
-		display: -webkit-flex;
-		display: flex;
-		width: 100%;
-	}
-	
-	.item_1 {
-		width: 35%;
-		background: #808080;
-	}
-	
-	.item_2 {
-		width: 65%;
-	}
-	
-	.main {
-		border:2px solid #1E90FF;
-		background-color: rgba(240, 240, 240, 1);
-		height:400px;
-		width:700px;
-	}
-	
-	.button {
-		color:white;
-		background: linear-gradient(rgb(71, 180, 245) 5%, hsl(202, 91%, 42%) 100%) rgb(71, 180, 245);
-		width: 80px;
-		height: 40px;
-		white-space:normal;
-		margin: 10px;
-	}
-	
-	.btn-green {
-		color:white;
-		background: green;
-		width: 80px;
-		height: 40px;
-		white-space:normal;
-		margin: 10px;
-	}
-	
-	#invoice {
-		padding-bottom: 10px;
-	}
-</style>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Update invoice</title>
+		<style> 
+			.flex-container { 
+				display: -webkit-flex; 
+				display: flex; 
+			} 
+			 
+			@media (max-width: 575px) {
+				.flex-container {
+					-webkit-flex-direction: column;
+    				flex-direction: column;
+				}
 
-<div class="flex-container main" >
-	<div class="item_1">
-	<center>
-		<input placeholder="Please enter Invoice#"></input><br>		
-		<input type="radio" name="invoice" id="invoice"> <label>PGIN1006</label><br>
-		<input type="radio" name="invoice" id="invoice"> <label>ULIN1504</label><br>
-		<input type="radio" name="invoice" id="invoice"> <label>PGIN1404</label><br>
-		<input type="radio" name="invoice" id="invoice"> <label>ITIN2903</label><br>
-		<input type="radio" name="invoice" id="invoice"> <label>PGIN2803</label><br>
-		<button class="button">Search</button>
-		<button class="btn-green">Check Status</button>
-	</center>
+				.item_1 {
+					width: 100%;
+					background: #808080;
+				}
+
+				.item_2 {
+					width: 100%; 
+				}
+			}
+
+			.value_1 { 
+		 		border:2px solid Forestgreen; 
+		 		width:80px; 
+		 	} 
+
+			#display { 
+		 		width:80px; 
+		 		height:20px; 
+		 		background:white; color:#696969; 
+		 		padding-left: 5px; 
+		 		padding-right: 5px; 
+		 	} 
+
+			@media (min-width: 576px) {
+				.item_1 { 
+					width: 35%; 
+					background: #808080;
+					padding-top: 50px;
+					padding-bottom: 50px;
+				} 
+				 
+				.item_2 { 
+					width: 65%;
+					padding-top: 50px;
+					padding-bottom: 50px;
+				} 
+			}
+			 
+			.main { 
+				margin: 0 auto;
+				border:2px solid #1E90FF; 
+				background-co;lor: rgba(240, 240, 240, 1); 
+		 		height:80%; 
+		 		width:80%;
+			} 
+			 
+			.button { 
+				color:white; 
+				background: linear-gradient(rgb(71, 180, 245) 5%, hsl(202, 91%, 42%) 100%) rgb(71, 180, 245); 
+				width: 75px; 
+				height: 35px;  
+				margin: 20px;
+			} 
+			 
+			.btn-green { 
+				color:white; 
+				background: green; 
+				width: 75px; 
+				height: 35px; 
+				white-space:normal; 
+				margin: 20px; 
+			} 
+			 
+			#invoice { 
+				padding-bottom: 10px; 
+			}
+
+			tr {
+				height: 10px;
+			} 
+		</style> 
+	</head>
+	<body>
+	<div class="main">
+		<div class="flex-container" > 
+			<div class="item_1"> 
+				<center>
+					<table> 
+						<tr><input placeholder="Please enter Invoice#"></input><br></tr>		 
+						<tr><td><input type="radio" name="invoice" id="invoice" value="PGIN1006"></td> <td><label>PGIN1006</label><br></td></tr> 
+						<tr><td><input type="radio" name="invoice" id="invoice" value="ULIN1504"></td> <td><label>ULIN1504</label><br></td></tr> 
+						<tr><td><input type="radio" name="invoice" id="invoice" value="PGIN1404"></td> <td><label>PGIN1404</label><br></td></tr>
+						<tr><td><input type="radio" name="invoice" id="invoice" value="ITIN2903"></td> <td><label>ITIN2903</label><br></td></tr> 
+						<tr><td><input type="radio" name="invoice" id="invoice" value="PGIN2803"></td> <td><label>PGIN2803</label><br></td></tr> 		
+					</table>
+					<div>
+						<button class="button">Search</button>
+						<button class="btn-green">Check Status</button>
+					</div>
+				</center>				
+			</div> 
+			<div class="item_2"> 
+				<div style="display: flex">
+					<table cellspacing="10" class="s-table"> 
+						<tr> 
+							<td id="display">Invoice#</td> 
+							<td id="display" class="value_1">PGIN1006</td> 
+						</tr> 
+						<tr> 
+							<td id="display">PO#</td> 
+							<td id="display" class="value_1">PGPO2605</td> 
+						</tr> 
+						<tr> 
+							<td id="display">Status Update</td> 
+							<td id="display" class="value_1"><textarea></textarea></td> 
+						</tr> 
+					</table> 
+
+					<table cellspacing="10" class="s-table" style="padding-left: 50px;"> 
+						<tr> 
+							<td id="display">Lot#</td> 
+							<td id="display" class="value_1">1</td> 
+						</tr> 
+					</table>
+				</div>
+				<center>
+					<button class="button">Update</button> 
+					<button class="button">Back</button> 
+				</center>
+			</div>
+		</div>
+		 
 	</div>
-	<div class="item_2">
-		<table>
-			<tr>
-				<td>Invoice#</td>
-				<td>Check Invoice Status</td>
-			</tr>
-			<tr>
-				<td>PO#</td>
-				<td>Check Invoice Status</td>
-			</tr>
-			<tr>
-				<td>Lot#</td>
-				<td>Check Invoice Status</td>
-			</tr>
-			<tr>
-				<td>Status Update</td>
-				<td><input placeholder="Enter here"></input></td>
-			</tr>
-		</table>
-		
-		<div>Current status</div>
-		
-		<button class="button">Update</button>
-		<button class="button">Back</button>
-	</div>
-</div>
+	</body>
+</html>
