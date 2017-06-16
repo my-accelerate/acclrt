@@ -1,45 +1,135 @@
-<style>
-	.flex-container {
-		display: -webkit-flex;
-		display: flex;
-		width: 100%;
-	}
-	
-	.flex-item {
-		width: 50%;
-	}
-</style>
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Check PO status</title>
+		<style> 
+		 	.flex-container { 
+		 		display: -webkit-flex; 
+		 		display: flex; 
+		 		width: 100%; 
+		 	} 
+		 	 
+		 	.flex-item { 
+		 		width: 50%; 
+		 	} 
 
-<div class="flex-container">
-	<div class="flex-item">
-		<input placeholder="Please enter Invoice#"></input>
-		<div id="in_list">
-		<button>Create</button>
-		<button>Cancel</button>
-	</div>
-	<div class="flex-item">
-		<table>
-			<tr>
-				<td>Invoice#</td>
-				<td>Check Invoice Status</td>
-			</tr>
-			<tr>
-				<td>PO#</td>
-				<td>Check Invoice Status</td>
-			</tr>
-			<tr>
-				<td>Lot#</td>
-				<td>Check Invoice Status</td>
-			</tr>
-			<tr>
-				<td>SupplierId</td>
-				<td>Check Invoice Status</td>
-			</tr>
-		</table>
-		
-		<div>Current status</div>
-		
-		<button>View Status for all Lots</button>
-		<button>Back</button>
-	</div>
-</div>
+		 	.main { 
+		 		margin: 0 auto; 
+		 		border:2px solid #1E90FF; 
+		 		background-color: rgba(240, 240, 240, 1); 
+		 		height:80%; 
+		 		width:80%;
+		 	} 
+
+		 	@media (min-width: 576px) {
+				.item_1 { 
+					width: 35%; 
+					background: #808080;
+					padding-top: 50px;
+					padding-bottom: 50px;
+				} 
+				 
+				.item_2 { 
+					width: 65%;
+					padding-top: 50px;
+					padding-bottom: 50px;
+				} 
+			}
+
+			@media (max-width: 575px) {
+				.flex-container {
+					-webkit-flex-direction: column;
+    				flex-direction: column;
+				}
+
+				.item_1 {
+					width: 100%;
+					background: #808080;
+				}
+
+				.item_2 {
+					width: 100%; 
+				}
+			}
+
+			.status-box {
+				width:90%;
+				border: 1px solid #3333cc;
+				background-color: #b3ccff;
+				height: auto;
+				padding: 5px;
+			}
+
+			.button { 
+				color:white; 
+				background: linear-gradient(rgb(71, 180, 245) 5%, hsl(202, 91%, 42%) 100%) rgb(71, 180, 245); 
+				width: 75px; 
+				height: 35px;  
+				margin: 20px;
+			} 
+			 
+			.btn-green { 
+				color:white; 
+				background: green; 
+				width: 75px; 
+				height: 35px; 
+				margin: 20px; 
+			} 
+		</style> 
+	</head>
+	<body>
+		<div class="main">
+			<div class="flex-container"> 
+				<div class="item_1"> 
+				<center>
+					<div id="in_list">
+						<table> 
+							<tr><input placeholder="Please enter Invoice#"></input><br></tr>		 
+							<tr><td><input type="radio" name="invoice" id="invoice" value="PGIN1006"></td> <td><label>PGIN1006</label><br></td></tr> 
+							<tr><td><input type="radio" name="invoice" id="invoice" value="ULIN1504"></td> <td><label>ULIN1504</label><br></td></tr> 
+							<tr><td><input type="radio" name="invoice" id="invoice" value="PGIN1404"></td> <td><label>PGIN1404</label><br></td></tr>
+							<tr><td><input type="radio" name="invoice" id="invoice" value="ITIN2903"></td> <td><label>ITIN2903</label><br></td></tr> 
+							<tr><td><input type="radio" name="invoice" id="invoice" value="PGIN2803"></td> <td><label>PGIN2803</label><br></td></tr> 	
+						</table> 					
+					</div> 
+					<button class="button">Search</button> 
+					<button class="btn-green">Check Status</button> 
+				</center>
+				</div>
+				<div class="item_2"> 
+					<table> 
+						<tr> 
+							<td id="display">Invoice#</td> 
+							<td id="display" class="value_1">Check Invoice Status</td> 
+						</tr> 
+						<tr> 
+							<td id="display">PO#</td> 
+							<td id="display" class="value_1">Check Invoice Status</td> 
+						</tr> 
+						<tr> 
+							<td id="display">Lot#</td> 
+							<td id="display" class="value_1">Check Invoice Status</td> 
+						</tr> 
+						<tr> 
+							<td>SupplierId</td> 
+							<td id="display" class="value_1">Check Invoice Status</td> 
+						</tr> 
+					</table> 
+					 
+					<div class="status-box">
+						<h3>Current Status of Lot# 1 within PO# PGPO02605</h3>
+						<p>**PO has been created and is sent to Supplier for processing**</p>
+						<button>Click for audit trail</button>
+					</div> 
+					 
+					<button>View Status for all Lots</button> 
+					<button>Back</button> 
+				</div> 
+			</div> 
+		</div>
+	</body>
+</html>
+
+
+  
+
